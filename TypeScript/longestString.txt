@@ -1,0 +1,29 @@
+export const longest = (s1:string, s2:string): string => {
+  // your code
+  
+  /* We could make a case for where the strings are equal to skip extra concat but generally that extra
+  case would be unecessary and only give extra code, so we concat even so */
+  
+  let longeststring: string = s1 + s2;
+  
+  let longestarray: string[] = longeststring.split("").sort();
+ 
+    // Create a set using array
+  let longestset: Set<string> = new Set(longestarray);
+ 
+    // Convert the set into array using spread 
+    // operator and join it to make string
+  longeststring = [...longestset].join("");
+  
+  return longeststring
+}
+
+console.log(longest("aretheyhere", "yestheyarehere"))
+
+/* Shorthand solution here:
+
+pawelmk, tozwierz, Haksell, adaytoleum, MaciejNarejko, sgript
+export const longest = (s1: string, s2: string): string =>
+  [...new Set([...s1, ...s2])].sort().join("");
+
+*/

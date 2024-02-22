@@ -1,0 +1,38 @@
+export function accum(s: string): string {
+  /* Will make it into an array and check the index of the letter to be the accum */
+  /* Add hyphen after the looped index */
+  /* May even do concat hyphen + toUpperCase */
+  
+  let stringarray: string[] = s.split('');
+  var arraypush: string[] = [];
+  
+  for (let i: number = 0; i < stringarray.length; i++) {
+    arraypush.push(stringarray[i].toUpperCase());
+    
+    for(let j: number = 0; j < i; j++) {
+      arraypush.push(stringarray[i].toLowerCase());
+    }
+    
+    arraypush.push("-");
+    
+  }
+
+
+  arraypush.pop();   /* Popping the last hyphen */
+  
+  return arraypush.join("");
+  
+}
+
+accum("ZpglnRxqenU")
+
+/* Very clever solution using repeat on the index:
+
+shashankr27, Mangonando, MariaBadanina
+export function accum(s: string): string {
+  return s.split('')
+  .map((elem, index) => elem.toUpperCase() + (elem.toLowerCase()).repeat(index))
+  .join('-');
+}
+
+*/

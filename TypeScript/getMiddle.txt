@@ -1,0 +1,42 @@
+function getMiddle(s:string) {
+  // return the middle charater(s)
+  
+  // make the string into an array to check the length
+  // check odd or even length and make a divider based on that
+
+  // Edit: length method also checks out for string so no array conversion should be necessary
+  
+  var stringarray: string[] = s.split('')
+  var resultarray: string[] = [];
+  
+  // if even
+  
+  if(stringarray.length % 2 == 0) {
+    let divider: number = stringarray.length / 2;
+    
+    resultarray.push(stringarray[divider-1]);
+    resultarray.push(stringarray[divider]);
+    
+    return resultarray.join('');
+    
+  }
+  
+  let divider: number = (stringarray.length - 1) / 2;  // -1 gets the correct divider
+  
+  resultarray.push(stringarray[divider]);
+  
+  return resultarray.join('');
+  
+}
+
+console.log(getMiddle("momm"));
+
+/* More compact solution:
+
+edwardbaldacchino
+export function getMiddle(s:string) {
+  const middle = Math.ceil(s.length / 2) - 1
+  return s.slice(middle, s.length - middle)
+}
+
+*/

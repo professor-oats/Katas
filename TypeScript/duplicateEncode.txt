@@ -1,0 +1,19 @@
+export function duplicateEncode(word: string): string {
+
+    const mystring: string = word.toLowerCase();
+    const charCount: { [key: string]: number } = {};
+
+    // Count occurrences of each character
+    for (const char of mystring) {
+        charCount[char] = (charCount[char] || 0) + 1;
+    }
+
+    // Map each character to ')' if it's a duplicate, otherwise '('
+    const result: string[] = mystring.split('').map(char => {
+        return charCount[char] > 1 ? ')' : '(';
+    });
+
+    return result.join('');
+}
+
+console.log(duplicateEncode("(( @"));

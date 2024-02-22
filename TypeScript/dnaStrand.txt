@@ -1,0 +1,36 @@
+function dnaStrand(dna: string) {
+    //your code here 
+    
+    let resultstring: string = "";
+    
+    for (let i = 0; i < dna.length; i++) {
+      
+      switch (dna.charAt(i)) {
+        case 'A':
+          resultstring += 'T';
+          break;
+          
+        case 'T':
+          resultstring += 'A';
+          break;
+          
+        case 'C':
+          resultstring += 'G';
+          break;
+        
+        case 'G':
+          resultstring += 'C';
+          break;
+        
+       default:
+          return resultstring = "Mutated DNA"
+          
+      }
+      
+    }
+
+    return resultstring;
+    
+  }
+
+console.log(dnaStrand("AAGC"));

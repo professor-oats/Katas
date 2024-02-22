@@ -1,0 +1,52 @@
+export function getSum(a: number, b: number): number {
+  // Good luck!
+  
+  if (a === b) {
+    
+    return a;
+  }
+  
+  /* I will check the lowest and make code that one-steps to the highest */
+  /* Let us do a sumcalc function and make a check to mirror the inparameters for it */
+  
+  function calcsum (in1: number, in2: number): number {
+    
+    let sum: number = in1;
+    
+    if (in2 <= 0) {
+      var stepcount: number = Math.abs(in1 - in2); 
+    }
+    else {
+      var stepcount: number = in2 - in1;
+    }
+    
+    stepcount--;  /* Decrement since we initiate sum with instance of in1 */
+                  /* Could opt the condition in the for loop, I just like the idea that the stepcount equals to an actual step */    
+
+    for (let i: number = 0; i <= stepcount; i++) {
+      sum += ++in1;
+    }
+    
+    return sum;
+  }
+  
+  /* Conditional check to mirror in-parameters to function */
+  
+  if (a < b) {
+    return calcsum(a, b);
+  }
+  
+  return calcsum(b, a);
+  
+  
+}
+
+/* I like this solution on Codewars very much:
+
+asurance, LasseNybro, d.c.a, vmartvall, retard2047
+export function getSum(a: number, b: number): number {
+    // Good luck!
+    return (Math.abs(a - b) + 1) * (a + b) / 2;
+}
+
+*/

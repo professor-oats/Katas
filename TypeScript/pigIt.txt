@@ -1,0 +1,14 @@
+export const pigIt = (a : string) : string =>  {
+  // code away
+  var stringarr: string[] = a.split(' ');
+  
+  const resultarr: string[] = stringarr.map((element) => {
+    return /[a-zA-Z]+/.test(element) ? (element.substr(1,) + element[0] + 'ay') : element
+  })
+                                            
+  return resultarr.join(' ')
+}
+
+console.log(pigIt("mom is a champ"))
+
+/* Can also be done with element.slice(1) + element[0] + "ay" */
